@@ -1,0 +1,237 @@
+:root {
+  font-size: 16px;
+
+  --primary: #263c70;
+  --secondary: #ffdc2c;
+  --aux: #cc0e9e;
+  --gray: #dddddd;
+  --gray-light: #efefef;
+  --gray-dark: #999999;
+  --gray-darker: #333333;
+  --blue: #237fd0;
+  --blue-lighter: #f2f5f8;
+  --blue-dark: #175f9f;
+  --yellow: #f8db1c;
+  --green: #00b087;
+  --red: #d73a21;
+  --white: #ffffff;
+  --black: #000000;
+
+  --box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: var(--gray-darker);
+  font-family: "Hind Madurai", sans-serif;
+  font-size: 0.875rem;
+}
+
+body.overflow-hidden {
+  overflow: hidden;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+button {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1300px;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.icon {
+  border: 1px solid var(--gray);
+  border-radius: 0.25rem;
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.icon.icon--xs {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.icon.icon--sm {
+  height: 1rem;
+  width: 1rem;
+}
+
+.icon.icon--md {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.icon.icon--lg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.icon.icon--xl {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.header {
+  background: var(--primary);
+  height: 205px;
+  padding: 0 0 1.5rem;
+  position: relative;
+}
+
+.header:after {
+  background-color: var(--white);
+  border-radius: 1rem 1rem 0 0;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1.5rem;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.aside,
+.view-map,
+.filter,
+.filter-applied {
+  display: none;
+}
+
+.content {
+  display: block;
+  padding: 0 0 1.5rem;
+}
+
+.main {
+  align-content: flex-start;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.input-group {
+  padding: 0.5rem 0 0;
+  position: relative;
+}
+
+.input-group label {
+  background-color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  left: 1rem;
+  padding: 0 0.5rem;
+  position: absolute;
+  top: 0rem;
+}
+
+.input-group input {
+  background-color: var(--white);
+  border: 1px solid var(--gray-darker);
+  border-radius: 0.5rem;
+  color: var(--gray-darker);
+  padding: 0.75rem 1rem;
+  width: 100%;
+}
+
+.floating-nav {
+  align-items: center;
+  bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  pointer-events: none;
+  width: 100%;
+  z-index: 9;
+}
+
+.floating-nav__button {
+  background-color: var(--secondary);
+  border: none;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 1rem;
+  pointer-events: all;
+}
+
+.floating-nav__button:not(:first-child) {
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.floating-nav__button:first-child {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.floating-nav__button:last-child {
+  border-radius: 0 1rem 1rem 0;
+}
+
+.floating-nav__button .icon {
+  border-color: var(--gray-darker);
+}
+
+.floating-nav__button span {
+  font-weight: 700;
+}
+
+.floating-nav.floating-nav--map {
+  bottom: 4rem;
+  display: none;
+  z-index: 11;
+}
+
+@media (min-width: 768px) {
+  .header {
+    height: 133px;
+  }
+
+  .view-map,
+  .filter,
+  .filter-applied {
+    display: block;
+  }
+
+  .aside {
+    align-content: flex-start;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .content .container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 305px 1fr;
+  }
+
+  .floating-nav {
+    display: none !important;
+  }
+}

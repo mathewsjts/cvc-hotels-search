@@ -1,0 +1,229 @@
+.map-dialog {
+  display: none;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+body.map-active .map-dialog {
+  display: block;
+}
+
+.map-dialog__backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+.map-dialog__modal {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.map-dialog__modal__close-button {
+  display: none;
+}
+
+.map-dialog__modal__wrapper {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 12;
+}
+
+.map-dialog__modal__content {
+  background-color: var(--blue-lighter);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 12;
+}
+
+.map-dialog__modal__buttons {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  position: relative;
+  z-index: 13;
+}
+
+.map-dialog__modal__button {
+  background-color: #fafafa;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.24);
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.map-dialog__modal__button .icon {
+  border-color: var(--primary);
+}
+
+.map-dialog__modal__button span {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.map-dialog__modal__button--back {
+  background-color: var(--primary);
+  display: none;
+}
+
+.map-dialog__modal__button--back .icon {
+  border-color: var(--white);
+}
+
+.map-dialog__modal__button--back span {
+  color: var(--white);
+}
+
+.map-dialog__content__info {
+  background-color: var(--white);
+  border-radius: 1rem 1rem 0 0;
+  bottom: -15.5rem;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.16);
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+}
+
+.map-dialog__content__info--active {
+  bottom: 0;
+}
+
+.map-dialog__content__title {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.map-dialog__content__list {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem;
+}
+
+.map-dialog__content__item {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.map-dialog__content__item .hotel-card {
+  height: 232px;
+}
+
+.map-dialog__content__list-button {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .map-dialog__modal__button--back {
+    display: inline-flex;
+  }
+
+  .map-dialog__modal {
+    align-items: flex-start;
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.16);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    left: 50%;
+    max-height: 45.875rem;
+    max-width: 56.625rem;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .map-dialog__modal__close-button {
+    background-color: var(--white);
+    border: none;
+    border-radius: 1rem;
+    display: inline-flex;
+    height: 2.5rem;
+    position: absolute;
+    right: -3.5rem;
+    top: 0;
+    width: 2.5rem;
+  }
+
+  .map-dialog__modal__close-button .icon {
+    border-color: var(--gray-darker);
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  .map-dialog__modal__wrapper {
+    border-radius: 1rem 1rem 0 0;
+    overflow: hidden;
+  }
+
+  .map-dialog__modal__buttons {
+    padding: 1.5rem;
+  }
+
+  .map-dialog__content__info {
+    border-radius: 0 0 1rem 1rem;
+    bottom: auto;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .map-dialog__content__title {
+    padding: 1rem 2rem 1.25rem;
+  }
+
+  .map-dialog__content__list {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .map-dialog__content__list-button {
+    background-color: var(--white);
+    border: none;
+    border-radius: 1rem;
+    bottom: 4.25rem;
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.16);
+    display: inline-flex;
+    padding: 0.625rem;
+    position: absolute;
+  }
+
+  .map-dialog__content__list-button--prev {
+    left: -1.75rem;
+  }
+
+  .map-dialog__content__list-button--next {
+    right: -1.75rem;
+  }
+
+  .map-dialog__content__list-button .icon {
+    border-color: var(--gray-darker);
+  }
+
+  .map-dialog__content__list {
+    gap: 1rem;
+    margin-top: -1rem;
+    overflow: hidden;
+    padding-top: 1rem;
+  }
+
+  .map-dialog__content__item {
+    width: calc(50% - 0.5rem);
+  }
+
+  .map-dialog__content__item .hotel-card {
+    height: 127px;
+  }
+}

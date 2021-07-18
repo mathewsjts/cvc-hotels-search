@@ -1,0 +1,30 @@
+.order {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.order__title {
+  flex-grow: 1;
+}
+
+.order__title span {
+  font-weight: 700;
+  line-height: 1;
+}
+
+.order__button {
+  background-color: transparent;
+  border: none;
+  gap: 0.5rem;
+}
+
+.order__button .icon {
+  border-color: var(--gray-darker);
+}
+
+.order__button span {
+  color: var(--gray-darker);
+  font-weight: 700;
+}

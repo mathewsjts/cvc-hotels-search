@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotéis - CVC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/main.css">
+  <link rel="stylesheet" href="/assets/styles/_banner.css">
+  <link rel="stylesheet" href="/assets/styles/_order.css">
+  <link rel="stylesheet" href="/assets/styles/_filter-applied.css">
+  <link rel="stylesheet" href="/assets/styles/_view-map.css">
+  <link rel="stylesheet" href="/assets/styles/_filter.css">
+  <link rel="stylesheet" href="/assets/styles/_map-dialog.css">
+  <link rel="stylesheet" href="/assets/styles/_hotel-card.css">
+  <link rel="stylesheet" href="/assets/styles/_hotel-card--sm.css">
+  <link rel="stylesheet" href="/assets/styles/_hotel-card--md.css">
+  <script src="/assets/scripts/main.js"></script>
+</head>
+<body>
+  <header class="header"></header>
+  <content class="content">
+    <div class="container">
+      <aside class="aside">
+        <section class="view-map">
+          <button class="view-map__button" onclick="openMap()">
+            <i class="icon"></i>
+            <span>Ver no mapa</span>
+          </button>
+        </section>
+        <section class="filter">
+          <div class="filter__pre" onclick="closeFilter()">
+            <i class="icon"></i>
+            <div class="filter__pre__date-range">
+              25 de set - 30 de set
+            </div>
+            <div class="filter__pre__rooms">
+              <i class="icon icon--md"></i>
+              <span>1</span>
+            </div>
+            <div class="filter__pre__pax">
+              <i class="icon icon--md"></i>
+              <span>2</span>
+            </div>
+          </div>
+          <div class="filter__content">
+            <div class="filter__header">
+              <div class="filter__header__title">
+                <i class="icon"></i>
+                <span>Filtros</span>
+              </div>
+              <button class="filter__header__button">
+                <span>Limpar filtros</span>
+              </button>
+            </div>
+            <ul class="filter__list">
+              <li class="filter__item">
+                <div class="filter__item__title">
+                  <span>Ofertas Especiais</span>
+                </div>
+                <div class="filter__item__content filter-content">
+                  <ul class="filter-content__list">
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Semana de Descontos (238)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Black Friday (127)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Aniversário CVC (26)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Cartão CVC (238)</span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="filter__item">
+                <div class="filter__item__title">
+                  <span>Valor da diária</span>
+                </div>
+                <div class="filter__item__content filter-content">
+                  <div class="filter-content__lead">
+                    <span>De</span>
+                    <a>R$ 0,00</a>
+                    <span>até</span>
+                    <a>R$ 5.453,00</a>
+                  </div>
+                  <div class="filter-content__slider">
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <div class="filter-content__range">
+                    <div class="input-group">
+                      <label for="range-first">Inicial</label>
+                      <input id="range-first" type="text" value="R$ 10,00">
+                    </div>
+                    <div class="input-group">
+                      <label for="range-second">Final</label>
+                      <input id="range-second" type="text" value="R$ 5.453,00">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="filter__item">
+                <div class="filter__item__title">
+                  <span>Categoria</span>
+                </div>
+                <div class="filter__item__content filter-content">
+                  <ul class="filter-content__list">
+                    <li class="filter-content__item filter-content__item--award">
+                      <label>
+                        <input type="checkbox">
+                        <span>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item filter-content__item--award">
+                      <label>
+                        <input type="checkbox">
+                        <span>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm"></i>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item filter-content__item--award">
+                      <label>
+                        <input type="checkbox">
+                        <span>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm"></i>
+                          <i class="icon icon--sm"></i>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item filter-content__item--award">
+                      <label>
+                        <input type="checkbox">
+                        <span>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm"></i>
+                          <i class="icon icon--sm"></i>
+                          <i class="icon icon--sm"></i>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item filter-content__item--award">
+                      <label>
+                        <input type="checkbox">
+                        <span>
+                          <i class="icon icon--sm icon--active"></i>
+                          <i class="icon icon--sm"></i>
+                          <i class="icon icon--sm"></i>
+                          <i class="icon icon--sm"></i>
+                          <i class="icon icon--sm"></i>
+                        </span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="filter__item">
+                <div class="filter__item__title">
+                  <span>Refeições</span>
+                </div>
+                <div class="filter__item__content filter-content">
+                  <ul class="filter-content__list">
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Sem Café (238)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Café da Manhã (127)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Meia Pensão (26)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Pensão Completa (53)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>All Inclusive (112)</span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="filter__item">
+                <div class="filter__item__title">
+                  <span>Comodidades</span>
+                </div>
+                <div class="filter__item__content filter-content">
+                  <ul class="filter-content__grid">
+                    <li class="filter-content__grid-item">
+                      <button class="filter-content__grid-item__button filter-content__grid-item__button--active">
+                        <i class="icon"></i>
+                        <span>Wi-fi gratis</span>
+                      </button>
+                    </li>
+                    <li class="filter-content__grid-item">
+                      <button class="filter-content__grid-item__button">
+                        <i class="icon"></i>
+                        <span>Academia</span>
+                      </button>
+                    </li>
+                    <li class="filter-content__grid-item">
+                      <button class="filter-content__grid-item__button">
+                        <i class="icon"></i>
+                        <span>Bar</span>
+                      </button>
+                    </li>
+                    <li class="filter-content__grid-item">
+                      <button class="filter-content__grid-item__button">
+                        <i class="icon"></i>
+                        <span>Restaurante</span>
+                      </button>
+                    </li>
+                    <li class="filter-content__grid-item">
+                      <button class="filter-content__grid-item__button">
+                        <i class="icon"></i>
+                        <span>Spa</span>
+                      </button>
+                    </li>
+                    <li class="filter-content__grid-item">
+                      <button class="filter-content__grid-item__button">
+                        <i class="icon"></i>
+                        <span>Piscina</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="filter__item">
+                <div class="filter__item__title">
+                  <span>Outras Comodidades</span>
+                </div>
+                <div class="filter__item__content filter-content">
+                  <ul class="filter-content__list">
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Acessibilidade (98)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Business Center (147)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Depósito de Bagagem (73)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Lavanderia (55)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Quadra Poliesportiva (114)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Recepção 24 horas (286)</span>
+                      </label>
+                    </li>
+                    <li class="filter-content__item">
+                      <label>
+                        <input type="checkbox">
+                        <span>Serviço de Quarto (133)</span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="filter__item">
+                <div class="filter__item__title">
+                  <span>Nome do Hotel</span>
+                </div>
+                <div class="filter__item__content filter-content">
+                  <div class="input-group">
+                    <label for="hotel-name">Digite o nome do hotel</label>
+                    <input id="hotel-name" type="text">
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="filter__apply">
+            <button class="filter__apply__button" onclick="closeFilter()">
+              <span>Aplicar 9 filtros</span>
+            </button>
+          </div>
+        </section>
+      </aside>
+      <main class="main">
+        <section class="banner">
+          <div class="banner__title">
+            <i class="icon icon--xl"></i>
+            <span>Aviso:</span>
+          </div>
+          <div class="banner__content">
+            <div class="banner__message">
+              <p>Mensagem de aviso aos usuários vai aqui</p>
+            </div>
+            <button class="banner__button">
+              <span>Veja mais detalhes</span>
+              <i class="icon icon--xs"></i>
+            </button>
+          </div>
+        </section>
+        <section class="order">
+          <div class="order__title">
+            <span>22 hotéis com benefícios exclusivos cartão cvc</span>
+          </div>
+          <button class="order__button">
+            <i class="icon"></i>
+            <span>Ordenar</span>
+          </button>
+        </section>
+        <section class="filter-applied">
+          <ul class="filter-applied__list">
+            <li class="filter-applied__item">
+              <button class="filter-applied__button">
+                <span>Wi-fi grátis</span>
+                <i class="icon icon--sm"></i>
+              </button>
+            </li>
+            <li class="filter-applied__item">
+              <button class="filter-applied__button">
+                <span>Lavanderia</span>
+                <i class="icon icon--sm"></i>
+              </button>
+            </li>
+            <li class="filter-applied__item">
+              <button class="filter-applied__button">
+                <span>Café da manhã</span>
+                <i class="icon icon--sm"></i>
+              </button>
+            </li>
+          </ul>
+        </section>
+        <section class="result">
+          <ul class="result__list">
+            <li class="result__item">
+              <div class="hotel-card hotel-card--md">
+                <div class="hotel-image">
+                  <img src="https://via.placeholder.com/334x270">
+                  <div class="hotel-image__actions">
+                    <div class="hotel-image__label">
+                      <span>Semana de Decontos</span>
+                    </div>
+                    <div class="hotel-image__buttons">
+                      <button class="hotel-image__button">
+                        <i class="icon icon--sm"></i>
+                      </button>
+                      <button class="hotel-image__button">
+                        <i class="icon icon--sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="hotel-image__count">
+                    <span>1/25</span>
+                  </div>
+                </div>
+                <div class="hotel-content">
+                  <div class="hotel-info">
+                    <div class="hotel-title">
+                      <span>Hard Rock Hotel Buenos Aires</span>
+                      <i class="icon"></i>
+                    </div>
+                    <div class="hotel-address">
+                      <span>Buenos Aires, Centro</span>
+                      <i class="divider"></i>
+                      <button class="hotel-address__button">
+                        <span>Veja no mapa</span>
+                      </button>
+                    </div>
+                    <div class="hotel-award-amenities">
+                      <div class="hotel-award">
+                        <i class="icon icon--xs"></i>
+                        <i class="icon icon--xs"></i>
+                        <i class="icon icon--xs"></i>
+                        <i class="icon icon--xs"></i>
+                        <i class="icon icon--xs"></i>
+                      </div>
+                      <div class="hotel-amenities">
+                        <ul class="hotel-amenities__list">
+                          <li class="hotel-amenities__item">
+                            <button class="hotel-amenities__button">
+                              <i class="icon icon--xs"></i>
+                            </button>
+                          </li>
+                          <li class="hotel-amenities__item">
+                            <button class="hotel-amenities__button">
+                              <i class="icon icon--xs"></i>
+                            </button>
+                          </li>
+                          <li class="hotel-amenities__item">
+                            <button class="hotel-amenities__button">
+                              <i class="icon icon--xs"></i>
+                            </button>
+                          </li>
+                          <li class="hotel-amenities__item">
+                            <button class="hotel-amenities__button">
+                              <i class="icon icon--xs"></i>
+                            </button>
+                          </li>
+                          <li class="hotel-amenities__item">
+                            <button class="hotel-amenities__button">
+                              <i class="icon icon--xs"></i>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="hotel-extra-price">
+                      <div class="hotel-extra">
+                        <div class="hotel-meal-offer">
+                          <div class="hotel-meal">
+                            <div class="hotel-meal__icon">
+                              <div class="icon icon--xs"></div>
+                            </div>
+                            <span>Café da manhã</span>
+                          </div>
+                          <div class="hotel-offer">
+                            <span>OFERTA ESPECIAL</span>
+                          </div>
+                        </div>
+                        <div class="hotel-warning">
+                          <span>Últimos 3 quartos!</span>
+                        </div>
+                      </div>
+                      <div class="hotel-price">
+                        <div class="hotel-offer-tag">
+                          <span>20% Off</span>
+                        </div>
+                        <div class="hotel-price-old">
+                          <span>De</span>
+                          <span class="stroke">R$ 960</span>
+                          <span>por</span>
+                        </div>
+                        <div class="hotel-price-value">
+                          <b>R$ <span>840</span></b>
+                          <span>/ Diária</span>
+                        </div>
+                        <div class="hotel-price-total">
+                          <span>Total 5 diárias</span>
+                          <a>R$ 4.200</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hotel-info-payment">
+                    <div class="hotel-price">
+                      <div class="hotel-offer-tag">
+                        <span>20% Off</span>
+                      </div>
+                      <div class="hotel-price-old">
+                        <span>De</span>
+                        <span class="stroke">R$ 960</span>
+                        <span>por</span>
+                      </div>
+                      <div class="hotel-price-value">
+                        <b>R$ <span>840</span></b>
+                        <span>/ Diária</span>
+                      </div>
+                      <div class="hotel-price-total">
+                        <span>Total 5 diárias</span>
+                        <a>R$ 4.200</a>
+                      </div>
+                    </div>
+                    <div class="hotel-footer">
+                      <button class="hotel-button">
+                        <span>Ver detalhe</span>
+                      </button>
+                      <div class="hotel-tax-payment-method">
+                        <div class="hotel-tax">
+                          <span>Taxas inclusas</span>
+                          <b>Em até 12x</b>
+                        </div>
+                        <div class="hotel-payment-method">
+                          <span>Ver meios de pagamento</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hotel-footer">
+                  <button class="hotel-button">
+                    <span>Ver detalhe</span>
+                  </button>
+                  <div class="hotel-tax-payment-method">
+                    <div class="hotel-tax">
+                      <span>Taxas inclusas</span>
+                      <i class="divider"></i>
+                      <b>Em até 12x</b>
+                    </div>
+                    <div class="hotel-payment-method">
+                      <a>Ver meios de pagamento</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="hotel-rating">
+                  <span>8,3</span>
+                  <small>muito bom</small>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </content>
+  <div id="floating-nav--list" class="floating-nav floating-nav--list">
+    <button class="floating-nav__button" onclick="openMap()">
+      <i class="icon"></i>
+      <span>Mapa</span>
+    </button>
+    <button class="floating-nav__button" onclick="openFilter()">
+      <i class="icon"></i>
+      <span>Filtro</span>
+    </button>
+  </div>
+  <div id="floating-nav--map" class="floating-nav floating-nav--map">
+    <button class="floating-nav__button" onclick="closeMap()">
+      <i class="icon"></i>
+      <span>Lista</span>
+    </button>
+    <button class="floating-nav__button" onclick="openFilter()">
+      <i class="icon"></i>
+      <span>Filtro</span>
+    </button>
+  </div>
+  <div class="map-dialog">
+    <div class="map-dialog__backdrop" onclick="closeMap()"></div>
+    <div class="map-dialog__modal">
+      <button class="map-dialog__modal__close-button" onclick="closeMap()">
+        <div class="icon"></div>
+      </button>
+      <div class="map-dialog__modal__wrapper">
+        <div class="map-dialog__modal__buttons">
+          <button class="map-dialog__modal__button map-dialog__modal__button--back" onclick="closeMap()">
+            <i class="icon"></i>
+            <span>Voltar para a lista</span>
+          </button>
+          <button class="map-dialog__modal__button">
+            <i class="icon"></i>
+            <span>Buscar nessa região</span>
+          </button>
+        </div>
+        <div id="map" class="map-dialog__modal__content"></div>
+      </div>
+      <div id="map-dialog__content__info" class="map-dialog__content__info" onclick="toggleMapCarousel()">
+        <div class="map-dialog__content__title">
+          <b>Hoteis da região</b>
+          <b>·</b>
+          <span>Mais de 120 hoteis encontrados</span>
+        </div>
+        <ul class="map-dialog__content__list">
+          <li class="map-dialog__content__item">
+            <div class="hotel-card hotel-card--sm">
+              <div class="hotel-image">
+                <img src="https://via.placeholder.com/334x270">
+                <div class="hotel-image__actions">
+                  <div class="hotel-image__label">
+                    <span>Semana de Decontos</span>
+                  </div>
+                  <div class="hotel-image__buttons">
+                    <button class="hotel-image__button">
+                      <i class="icon icon--sm"></i>
+                    </button>
+                    <button class="hotel-image__button">
+                      <i class="icon icon--sm"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="hotel-image__count">
+                  <span>1/25</span>
+                </div>
+              </div>
+              <div class="hotel-content">
+                <div class="hotel-info">
+                  <div class="hotel-title">
+                    <span>Hard Rock Hotel Buenos Aires</span>
+                    <i class="icon"></i>
+                  </div>
+                  <div class="hotel-subtitle">
+                    <div class="hotel-award">
+                      <i class="icon icon--xs"></i>
+                      <i class="icon icon--xs"></i>
+                      <i class="icon icon--xs"></i>
+                      <i class="icon icon--xs"></i>
+                      <i class="icon icon--xs"></i>
+                    </div>
+                    <div class="hotel-address">
+                      <span>Buenos Aires, Centro</span>
+                    </div>
+                  </div>
+                  <div class="hotel-amenities">
+                    <ul class="hotel-amenities__list">
+                      <li class="hotel-amenities__item">
+                        <button class="hotel-amenities__button">
+                          <i class="icon icon--xs"></i>
+                        </button>
+                      </li>
+                      <li class="hotel-amenities__item">
+                        <button class="hotel-amenities__button">
+                          <i class="icon icon--xs"></i>
+                        </button>
+                      </li>
+                      <li class="hotel-amenities__item">
+                        <button class="hotel-amenities__button">
+                          <i class="icon icon--xs"></i>
+                        </button>
+                      </li>
+                      <li class="hotel-amenities__item">
+                        <button class="hotel-amenities__button">
+                          <i class="icon icon--xs"></i>
+                        </button>
+                      </li>
+                      <li class="hotel-amenities__item">
+                        <button class="hotel-amenities__button">
+                          <i class="icon icon--xs"></i>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="hotel-warning">
+                    <span>Últimos 3 quartos!</span>
+                  </div>
+                </div>
+                <div class="hotel-price">
+                  <div class="hotel-offer-tag">
+                    <span>20% Off</span>
+                  </div>
+                  <div class="hotel-price-old">
+                    <span>De</span>
+                    <span class="stroke">R$ 960</span>
+                    <span>por</span>
+                  </div>
+                  <div class="hotel-price-value">
+                    <b>R$ <span>840</span></b>
+                    <span>/ Diária</span>
+                  </div>
+                  <div class="hotel-price-total">
+                    <span>Total 5 diárias</span>
+                    <a>R$ 4.200</a>
+                  </div>
+                </div>
+                <div class="hotel-rating">
+                  <span>8,3</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <button class="map-dialog__content__list-button map-dialog__content__list-button--prev">
+          <div class="icon"></div>
+        </button>
+        <button class="map-dialog__content__list-button map-dialog__content__list-button--next">
+          <div class="icon"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
